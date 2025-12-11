@@ -29,5 +29,8 @@ jobs:
         with:
           version: ">= 363.0.0"
 
+      - name: "Build Image"
+        run: docker build -t evanwiseman/notely:latest . --platform=linux/arm64
+
       - name: "Push to GCP"
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/modular-embassy-480900-q4/notely-ar-repo/notely:latest .
